@@ -21,6 +21,7 @@ namespace wpfrxexample
 
     public class MyViewModel: INotifyPropertyChanged 
     {
+        //http://msdn.microsoft.com/en-us/library/ms229614.aspx
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
