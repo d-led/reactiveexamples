@@ -23,7 +23,7 @@ namespace wpfrxexample.ViewModels
             set { this.RaiseAndSetIfChanged(x => x.TextInput, value); }
         }
 
-        int _WordCount=0;
+        int _WordCount;
         public int WordCount
         {
             get { return _WordCount; }
