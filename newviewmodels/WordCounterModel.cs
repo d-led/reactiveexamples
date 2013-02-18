@@ -23,14 +23,6 @@ namespace wpfrxexample.ViewModels
             set { this.RaiseAndSetIfChanged(x => x.TextInput, value); }
         }
 
-        private void UpdateWordCount()
-        {
-            WordCount = TextInput.Split()
-                .DefaultIfEmpty()
-                .Where(s => s.Trim().Length > 0)
-                .Count();
-        }
-
         int _WordCount=0;
         public int WordCount
         {
