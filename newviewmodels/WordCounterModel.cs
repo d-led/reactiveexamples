@@ -36,7 +36,7 @@ namespace wpfrxexample.ViewModels
             
             this.ObservableForProperty(x => x.TextInput)
                 //.Throttle(TimeSpan.FromSeconds(0.3))
-                .Subscribe(_=>WordCount=TextInput.Split()
+                .Subscribe(_ => WordCount = _.Value.Split()
                 .DefaultIfEmpty()
                 .Where(s => s.Trim().Length > 0)
                 .Count());
