@@ -20,7 +20,7 @@
             <GroupBox.Header>
                 Enter some text
             </GroupBox.Header>
-            <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="3" Name="textBox3" Text="{Binding TextInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="3" Name="textBox3" Text="{Binding TextInput, UpdateSourceTrigger=PropertyChanged, Delay=300}"></TextBox>
         </GroupBox>
     </Grid>
 </Window>

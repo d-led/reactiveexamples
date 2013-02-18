@@ -35,7 +35,7 @@ namespace wpfrxexample.ViewModels
             _BackgroundTicker = new ObservableAsPropertyHelper<string>(someBackgroundTicker, _ => raisePropertyChanged("BackgroundTicker"));
             
             this.ObservableForProperty(x => x.TextInput)
-                .Throttle(TimeSpan.FromSeconds(0.3))
+                //.Throttle(TimeSpan.FromSeconds(0.3))
                 .Subscribe(_=>WordCount=TextInput.Split()
                 .DefaultIfEmpty()
                 .Where(s => s.Trim().Length > 0)
