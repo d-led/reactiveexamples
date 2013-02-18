@@ -20,14 +20,14 @@ namespace wpfrxexample.ViewModels
         public string TextInput
         {
             get { return _TextInput; }
-            set { this.RaiseAndSetIfChanged(x => x.TextInput, value); }
+            set { this.RaiseAndSetIfChanged(ref _TextInput, value); }
         }
 
         int _WordCount;
         public int WordCount
         {
             get { return _WordCount; }
-            set { this.RaiseAndSetIfChanged(x => x.WordCount, value); }
+            set { this.RaiseAndSetIfChanged(ref _WordCount, value); }
         }
 
         public WordCounterModel(IObservable<string> someBackgroundTicker)
