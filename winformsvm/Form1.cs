@@ -31,7 +31,9 @@ namespace winformsvm
                 h => textBox3.TextChanged += h,
                 h => textBox3.TextChanged -= h);
 
-            textChanged.Throttle(TimeSpan.FromSeconds(0.3)).Subscribe(_ => VM.TextInput = textBox3.Text);
+            textChanged
+                .Throttle(TimeSpan.FromSeconds(0.3))
+                .Subscribe(_ => VM.TextInput = textBox3.Text);
         }
     }
 }

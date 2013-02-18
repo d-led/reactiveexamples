@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 firstviewmodel", "firstvi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 winformsvm", "winformsvm\3 winformsvm.csproj", "{4FC3CBAF-C771-4245-A1B1-833D452B33F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4 newviewmodels", "newviewmodels\4 newviewmodels.csproj", "{02D5BCF1-ADFD-4DB4-A6C9-D5BAE50E2CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5 refactoredwpf", "refactoredwpf\5 refactoredwpf.csproj", "{FD9CB05D-1A12-4942-BE51-5F64D4BED5B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{4FC3CBAF-C771-4245-A1B1-833D452B33F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC3CBAF-C771-4245-A1B1-833D452B33F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC3CBAF-C771-4245-A1B1-833D452B33F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D5BCF1-ADFD-4DB4-A6C9-D5BAE50E2CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D5BCF1-ADFD-4DB4-A6C9-D5BAE50E2CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D5BCF1-ADFD-4DB4-A6C9-D5BAE50E2CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D5BCF1-ADFD-4DB4-A6C9-D5BAE50E2CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9CB05D-1A12-4942-BE51-5F64D4BED5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9CB05D-1A12-4942-BE51-5F64D4BED5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9CB05D-1A12-4942-BE51-5F64D4BED5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9CB05D-1A12-4942-BE51-5F64D4BED5B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
