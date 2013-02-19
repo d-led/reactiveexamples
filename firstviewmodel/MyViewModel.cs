@@ -23,7 +23,7 @@ namespace wpfrxexample.ViewModels
         public string CurrentTime
         {
             get { return _CurrentTime; }
-            set
+            private set
             {
                 if (value != _CurrentTime)
                 {
@@ -60,7 +60,7 @@ namespace wpfrxexample.ViewModels
         public int WordCount
         {
             get { return _WordCount; }
-            set
+            private set
             {
                 if (value != _WordCount)
                 {

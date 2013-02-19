@@ -27,7 +27,7 @@ namespace wpfrxexample.ViewModels
         public int WordCount
         {
             get { return _WordCount; }
-            set { this.RaiseAndSetIfChanged(ref _WordCount, value); }
+            private set { this.RaiseAndSetIfChanged(ref _WordCount, value); }
         }
 
         public WordCounterModel(IObservable<string> someBackgroundTicker)
