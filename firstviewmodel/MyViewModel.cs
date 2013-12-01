@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 
@@ -9,6 +10,9 @@ namespace wpfrxexample.ViewModels
 
     public class MyViewModel : INotifyPropertyChanged
     {
+
+        IScheduler scheduler;
+         
         //http://msdn.microsoft.com/en-us/library/ms229614.aspx
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
@@ -70,9 +74,15 @@ namespace wpfrxexample.ViewModels
             }
         }
 
-        public MyViewModel()
+        public MyViewModel(IScheduler sch)
         {
+            if (sch != null)
+                scheduler = sch;
+            else
+                scheduler = System.Reactive.Concurrency.Scheduler.Default;
             Observable.Interval(TimeSpan.FromSeconds(1))
+                .SubscribeOn(scheduler)
+                .ObserveOn(scheduler)
                 .Subscribe(_ => CurrentTime = DateTime.Now.ToLongTimeString());
         }
     }

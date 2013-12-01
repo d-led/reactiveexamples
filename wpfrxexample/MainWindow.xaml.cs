@@ -17,7 +17,7 @@ namespace wpfrxexample
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            ViewModels.MyViewModel VM = new ViewModels.MyViewModel();
+            ViewModels.MyViewModel VM = new ViewModels.MyViewModel(null);
             DataContext = VM;
             var textChanged = Observable.FromEventPattern<TextChangedEventHandler, TextChangedEventArgs>(
                 handler => handler.Invoke,
