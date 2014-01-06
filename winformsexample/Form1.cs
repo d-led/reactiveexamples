@@ -16,6 +16,7 @@ namespace winformsexample
         private void Form1_Load(object sender, EventArgs e)
         {
             Observable.Interval(TimeSpan.FromSeconds(1))
+                .ObserveOn(this)
                 .Subscribe(x => textBox1.Text = DateTime.Now.ToLongTimeString());
 
             var textChanged = Observable.FromEventPattern
@@ -24,13 +25,15 @@ namespace winformsexample
                 h => textBox3.TextChanged+= h,
                 h => textBox3.TextChanged-= h);
 
-            textChanged.Subscribe(x => textBox2.Text =
-                textBox3.Text
-                .Split()
-                .DefaultIfEmpty()
-                .Where(s=>s.Trim().Length>0)
-                .Count()
-                .ToString());
+            textChanged
+                .ObserveOn(this)
+                .Subscribe(x => textBox2.Text =
+                    textBox3.Text
+                    .Split()
+                    .DefaultIfEmpty()
+                    .Where(s=>s.Trim().Length>0)
+                    .Count()
+                    .ToString());
         }
     }
 }
