@@ -81,7 +81,6 @@ namespace wpfrxexample.ViewModels
             else
                 scheduler = System.Reactive.Concurrency.Scheduler.Default;
             Observable.Interval(TimeSpan.FromSeconds(1))
-                .SubscribeOn(scheduler)
                 .ObserveOn(scheduler)
                 .Subscribe(_ => CurrentTime = DateTime.Now.ToLongTimeString());
         }

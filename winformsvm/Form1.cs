@@ -36,8 +36,7 @@ namespace winformsvm
 
             textChanged
                 .Throttle(TimeSpan.FromSeconds(0.3))
-                .ObserveOn(scheduler)
-                .SubscribeOn(this)
+                .ObserveOn(this)
                 .Subscribe(_ => VM.TextInput = textBox3.Text);
         }
     }
