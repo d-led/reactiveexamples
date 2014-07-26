@@ -32,21 +32,11 @@ namespace wpfrxexample.ViewModels
 
         public WordCounterModel(IObservable<string> someBackgroundTicker)
         {
-            _BackgroundTicker = new ObservableAsPropertyHelper<string>(someBackgroundTicker, _ => raisePropertyChanged("BackgroundTicker"));
-            
-            //var __WordCount=new ObservableAsPropertyHelper<int>(
-            //    this.ObservableForProperty(x => x.TextInput)
-            //        .Select(_ =>   _.Value.Split()
-            //                        .DefaultIfEmpty()
-            //                        .Where(s => s.Trim().Length > 0)
-            //                        .Count()),
-            //        _ => raisePropertyChanged("WordCount"));
+            _BackgroundTicker = new ObservableAsPropertyHelper<string>(someBackgroundTicker, _ => this.RaisePropertyChanged("BackgroundTicker"));
 
             this.ObservableForProperty(x => x.TextInput)
-                //.Throttle(TimeSpan.FromSeconds(0.3))
                 .Subscribe  (_ => WordCount = 
                                     _.Value.Split()
-                                    .DefaultIfEmpty()
                                     .Where(s => s.Trim().Length > 0)
                                     .Count()
                             );
