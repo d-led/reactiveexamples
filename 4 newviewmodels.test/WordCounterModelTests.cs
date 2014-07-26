@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using wpfrxexample.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using FluentAssertions;
+
+
 namespace wpfrxexample.ViewModels.Tests
 {
     [TestClass]
@@ -13,7 +17,16 @@ namespace wpfrxexample.ViewModels.Tests
         [TestMethod]
         public void WordCounterModelTest()
         {
-            Assert.Fail();
+            var mock = new Mock<IObservable<string>>();
+            var vm = new WordCounterModel(mock.Object);
+
+            vm.WordCount.Should().Be(0);
+
+            vm.TextInput = "bla!";
+            vm.WordCount.Should().Be(1);
+
+            vm.TextInput = "bla, bla!!";
+            vm.WordCount.Should().Be(2);
         }
     }
 }
