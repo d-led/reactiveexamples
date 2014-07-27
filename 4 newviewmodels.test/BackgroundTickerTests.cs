@@ -14,23 +14,23 @@ namespace wpfrxexample.ViewModels.Tests
     [TestClass]
     public class BackgroundTickerTests
     {
-[TestMethod]
-public void BackgroundTickerTest()
-{
-    (new TestScheduler()).With(scheduler =>
-    {
-        var ticker = new BackgroundTicker(scheduler);
+        [TestMethod]
+        public void BackgroundTickerTest()
+        {
+            (new TestScheduler()).With(scheduler =>
+            {
+                var ticker = new BackgroundTicker(scheduler);
 
-        int count = 0;
-        ticker.Ticker.Subscribe(_ => count++);
-        count.Should().Be(0);
+                int count = 0;
+                ticker.Ticker.Subscribe(_ => count++);
+                count.Should().Be(0);
 
-        scheduler.AdvanceByMs(1000);
-        count.Should().Be(1);
+                scheduler.AdvanceByMs(1000);
+                count.Should().Be(1);
 
-        scheduler.AdvanceByMs(2000);
-        count.Should().Be(3);
-    });
-}
+                scheduler.AdvanceByMs(2000);
+                count.Should().Be(3);
+            });
+        }
     }
 }
