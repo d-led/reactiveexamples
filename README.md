@@ -1,7 +1,7 @@
 reactiveexamples
 ================
 
-The code acompanying blog posts at [ledentsov.de](http://ledentsov.de)
+The code accompanying blog posts at [ledentsov.de](http://ledentsov.de)
 
 Posts
 -----
