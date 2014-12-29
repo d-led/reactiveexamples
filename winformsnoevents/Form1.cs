@@ -20,18 +20,18 @@ namespace winformsnoevents
         {
             InitializeComponent();
 
-            VM = new MyViewModel(WindowsFormsSynchronizationContext.Current,this.WhenAnyValue(x => x.inputBox.Text));
+            VM = new MyViewModel(
+                WindowsFormsSynchronizationContext.Current,
+                this.WhenAnyValue(x => x.inputBox.Text)
+            );
+
             this.Bind(VM, x => x.BackgroundTicker, x => x.tickerBox.Text);
             this.Bind(VM, x => x.WordCount, x => x.wordCountBox.Text);
         }
 
-        public MyViewModel VM { get; set; }
+        public MyViewModel VM { get; private set; }
 
-        Control BackgroundTicker
-        {
-            get { return this.tickerBox; }
-        }
-
+        #region IViewFor<MyViewModel>
         object IViewFor.ViewModel
         {
             get { return VM; }
@@ -43,5 +43,6 @@ namespace winformsnoevents
             get { return VM; }
             set { VM = value; }
         }
+        #endregion
     }
 }
