@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tickerBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.wordCountBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.inputBox = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.tickerBox = new MetroFramework.Controls.MetroTextBox();
+            this.label1 = new MetroFramework.Controls.MetroLabel();
+            this.label2 = new MetroFramework.Controls.MetroLabel();
+            this.wordCountBox = new MetroFramework.Controls.MetroTextBox();
+            this.inputBox = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // tickerBox
@@ -42,27 +41,33 @@
             this.tickerBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tickerBox.Enabled = false;
-            this.tickerBox.Location = new System.Drawing.Point(112, 13);
+            this.tickerBox.Lines = new string[0];
+            this.tickerBox.Location = new System.Drawing.Point(132, 66);
+            this.tickerBox.MaxLength = 32767;
             this.tickerBox.Name = "tickerBox";
+            this.tickerBox.PasswordChar = '\0';
             this.tickerBox.ReadOnly = true;
-            this.tickerBox.Size = new System.Drawing.Size(160, 20);
+            this.tickerBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tickerBox.SelectedText = "";
+            this.tickerBox.Size = new System.Drawing.Size(140, 20);
             this.tickerBox.TabIndex = 0;
+            this.tickerBox.UseSelectable = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(12, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.Size = new System.Drawing.Size(114, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Background ticker";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Location = new System.Drawing.Point(12, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(78, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Word count";
             // 
@@ -71,42 +76,49 @@
             this.wordCountBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordCountBox.Enabled = false;
-            this.wordCountBox.Location = new System.Drawing.Point(112, 39);
+            this.wordCountBox.Lines = new string[0];
+            this.wordCountBox.Location = new System.Drawing.Point(132, 92);
+            this.wordCountBox.MaxLength = 32767;
             this.wordCountBox.Name = "wordCountBox";
+            this.wordCountBox.PasswordChar = '\0';
             this.wordCountBox.ReadOnly = true;
-            this.wordCountBox.Size = new System.Drawing.Size(160, 20);
+            this.wordCountBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.wordCountBox.SelectedText = "";
+            this.wordCountBox.Size = new System.Drawing.Size(140, 20);
             this.wordCountBox.TabIndex = 3;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.inputBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 66);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox1.Size = new System.Drawing.Size(259, 184);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Enter some text";
+            this.wordCountBox.UseSelectable = true;
             // 
             // inputBox
             // 
-            this.inputBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputBox.Location = new System.Drawing.Point(10, 23);
+            this.inputBox.Lines = new string[0];
+            this.inputBox.Location = new System.Drawing.Point(12, 148);
             this.inputBox.Margin = new System.Windows.Forms.Padding(0);
+            this.inputBox.MaxLength = 32767;
             this.inputBox.Multiline = true;
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(239, 151);
-            this.inputBox.TabIndex = 0;
+            this.inputBox.PasswordChar = '\0';
+            this.inputBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.inputBox.SelectedText = "";
+            this.inputBox.Size = new System.Drawing.Size(260, 94);
+            this.inputBox.TabIndex = 5;
+            this.inputBox.UseSelectable = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(12, 118);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(100, 19);
+            this.metroLabel1.TabIndex = 6;
+            this.metroLabel1.Text = "Enter some text";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.inputBox);
             this.Controls.Add(this.wordCountBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -114,8 +126,6 @@
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "Form1";
             this.Text = "Responsive WinForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,11 +133,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tickerBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox wordCountBox;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox inputBox;
+        private MetroFramework.Controls.MetroTextBox tickerBox;
+        private MetroFramework.Controls.MetroLabel label1;
+        private MetroFramework.Controls.MetroLabel label2;
+        private MetroFramework.Controls.MetroTextBox wordCountBox;
+        private MetroFramework.Controls.MetroTextBox inputBox;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

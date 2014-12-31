@@ -1,10 +1,11 @@
-﻿using ReactiveUI;
+﻿using MetroFramework.Forms;
+using ReactiveUI;
 using System.Windows.Forms;
 
 
 namespace winformsnoevents
 {
-    public partial class Form1 : Form, IViewFor<MyViewModel>
+    public partial class Form1 : MetroForm, IViewFor<MyViewModel>
     {
         public Form1()
         {
