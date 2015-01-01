@@ -90,6 +90,9 @@
             // 
             // inputBox
             // 
+            this.inputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.inputBox.Lines = new string[0];
             this.inputBox.Location = new System.Drawing.Point(12, 148);
             this.inputBox.Margin = new System.Windows.Forms.Padding(0);
