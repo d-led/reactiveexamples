@@ -1,5 +1,6 @@
 ﻿using MetroFramework.Forms;
 using ReactiveUI;
+using System.Reactive.Concurrency;
 using System.Windows.Forms;
 
 
@@ -7,12 +8,16 @@ namespace winformsnoevents
 {
     public partial class Form1 : MetroForm, IViewFor<MyViewModel>
     {
+        IScheduler scheduler;
+
         public Form1()
         {
             InitializeComponent();
 
+            scheduler = new System.Reactive.Concurrency.ControlScheduler(this);
+
             VM = new MyViewModel(
-                WindowsFormsSynchronizationContext.Current,
+                scheduler,
                 this.WhenAnyValue(x => x.inputBox.Text)
             );
 

@@ -1,6 +1,7 @@
 ﻿using ReactiveUI;
 using System;
 using System.Linq;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Threading;
 
@@ -28,10 +29,10 @@ namespace winformsnoevents
             set { }
         }
 
-        public MyViewModel(SynchronizationContext context,IObservable<string> input)
+        public MyViewModel(IScheduler scheduler,IObservable<string> input)
         {
             Observable.Interval(TimeSpan.FromSeconds(1))
-               .ObserveOn(context)
+               .ObserveOn(scheduler)
                .Select(_ => DateTime.Now.ToLongTimeString())
                .ToProperty(this, x => x.BackgroundTicker,out backgroundTicker);
 
@@ -39,7 +40,7 @@ namespace winformsnoevents
                 .Where(x => x != null)
                 .Select(s => s.Split().Where(x => x.Trim().Length > 0).Count())
                 .Throttle(TimeSpan.FromSeconds(0.5))
-                .ObserveOn(context)
+                .ObserveOn(scheduler)
                 .ToProperty(this, x => x.WordCount, out wordCount);
         }
     }
