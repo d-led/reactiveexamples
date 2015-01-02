@@ -39,7 +39,7 @@ namespace winformsnoevents
             input
                 .Where(x => x != null)
                 .Select(s => s.Split().Where(x => x.Trim().Length > 0).Count())
-                .Throttle(TimeSpan.FromSeconds(0.5))
+                .Throttle(TimeSpan.FromSeconds(0.3))
                 .ObserveOn(scheduler)
                 .ToProperty(this, x => x.WordCount, out wordCount);
         }
