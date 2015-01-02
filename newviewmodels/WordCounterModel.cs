@@ -23,24 +23,24 @@ namespace wpfrxexample.ViewModels
             set { this.RaiseAndSetIfChanged(ref _TextInput, value); }
         }
 
-        int _WordCount;
+        ObservableAsPropertyHelper<int> _WordCount;
         public int WordCount
         {
-            get { return _WordCount; }
-            private set { this.RaiseAndSetIfChanged(ref _WordCount, value); }
+            get { return _WordCount.Value; }
         }
 
         public WordCounterModel(IObservable<string> someBackgroundTicker)
         {
-            _BackgroundTicker = someBackgroundTicker
-                .ToProperty(this, x => x.BackgroundTicker, out _BackgroundTicker);
+            someBackgroundTicker
+                .ToProperty(this, ticker => ticker.BackgroundTicker, out _BackgroundTicker);
 
-            this.ObservableForProperty(x => x.TextInput)
-                .Subscribe  (_ => WordCount = 
-                                    _.Value.Split()
-                                    .Where(s => s.Trim().Length > 0)
-                                    .Count()
-                            );
+            this.WhenAnyValue(x => x.TextInput)
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(x => x
+                    .Split()
+                    .Where(word => !string.IsNullOrWhiteSpace(word))
+                    .Count())
+                .ToProperty(this, vm => vm.WordCount, out _WordCount);
         }
     }
 }
