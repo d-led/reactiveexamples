@@ -52,8 +52,7 @@ namespace wpfrxexample.ViewModels
         {
             WordCount = TextInput.Split()
                 .DefaultIfEmpty()
-                .Where(s => s.Trim().Length > 0)
-                .Count();
+                .Count(word=>!string.IsNullOrWhiteSpace(word));
         }
 
         int _WordCount;
@@ -75,7 +74,7 @@ namespace wpfrxexample.ViewModels
             if (sch != null)
                 scheduler = sch;
             else
-                scheduler = System.Reactive.Concurrency.Scheduler.Default;
+                scheduler = Scheduler.Default;
             Observable.Interval(TimeSpan.FromSeconds(1))
                 .ObserveOn(scheduler)
                 .Subscribe(_ => CurrentTime = DateTime.Now.ToLongTimeString());
