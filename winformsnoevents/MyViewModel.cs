@@ -3,13 +3,12 @@ using System;
 using System.Linq;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
-using System.Threading;
 
 namespace winformsnoevents
 {
     public class MyViewModel : ReactiveObject
     {
-        private readonly ObservableAsPropertyHelper<string> backgroundTicker;
+        readonly ObservableAsPropertyHelper<string> backgroundTicker;
         public string BackgroundTicker
         {
             get
@@ -19,7 +18,7 @@ namespace winformsnoevents
             set {/* read-only properties not implemented yet?*/}
         }
 
-        private readonly ObservableAsPropertyHelper<int> wordCount;
+        readonly ObservableAsPropertyHelper<int> wordCount;
         public int WordCount
         {
             get
@@ -29,7 +28,7 @@ namespace winformsnoevents
             set { }
         }
 
-        public MyViewModel(IScheduler scheduler,IObservable<string> input)
+        public MyViewModel(IScheduler scheduler, IObservable<string> input)
         {
             Observable.Interval(TimeSpan.FromSeconds(1))
                .ObserveOn(scheduler)
@@ -38,7 +37,7 @@ namespace winformsnoevents
 
             input
                 .Where(x => x != null)
-                .Select(s => s.Split().Where(x => x.Trim().Length > 0).Count())
+                .Select(s => s.Split().Count(word=>!string.IsNullOrWhiteSpace(word)))
                 .Throttle(TimeSpan.FromSeconds(0.3))
                 .ObserveOn(scheduler)
                 .ToProperty(this, x => x.WordCount, out wordCount);

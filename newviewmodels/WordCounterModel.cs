@@ -1,16 +1,13 @@
 ﻿using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reactive.Linq;
 
 namespace wpfrxexample.ViewModels
 {
     public class WordCounterModel : ReactiveObject
     {
-        ObservableAsPropertyHelper<string> _BackgroundTicker;
+        readonly ObservableAsPropertyHelper<string> _BackgroundTicker;
         public string BackgroundTicker
         {
             get { return _BackgroundTicker.Value; }
@@ -23,7 +20,7 @@ namespace wpfrxexample.ViewModels
             set { this.RaiseAndSetIfChanged(ref _TextInput, value); }
         }
 
-        ObservableAsPropertyHelper<int> _WordCount;
+        readonly ObservableAsPropertyHelper<int> _WordCount;
         public int WordCount
         {
             get { return _WordCount.Value; }
@@ -38,8 +35,7 @@ namespace wpfrxexample.ViewModels
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .Select(x => x
                     .Split()
-                    .Where(word => !string.IsNullOrWhiteSpace(word))
-                    .Count())
+                    .Count(word => !string.IsNullOrWhiteSpace(word)))
                 .ToProperty(this, vm => vm.WordCount, out _WordCount);
         }
     }

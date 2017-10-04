@@ -13,7 +13,7 @@ namespace winformsexample
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        void Form1_Load(object sender, EventArgs e)
         {
             Observable.Interval(TimeSpan.FromSeconds(1))
                 .ObserveOn(this)
@@ -22,8 +22,8 @@ namespace winformsexample
             var textChanged = Observable.FromEventPattern
                 <EventHandler, EventArgs>(
                 handler => handler.Invoke,
-                h => textBox3.TextChanged+= h,
-                h => textBox3.TextChanged-= h);
+                h => textBox3.TextChanged += h,
+                h => textBox3.TextChanged -= h);
 
             textChanged
                 .ObserveOn(this)
@@ -31,8 +31,7 @@ namespace winformsexample
                     textBox3.Text
                     .Split()
                     .DefaultIfEmpty()
-                    .Where(s=>s.Trim().Length>0)
-                    .Count()
+                    .Count(word => !string.IsNullOrWhiteSpace(word))
                     .ToString());
         }
     }

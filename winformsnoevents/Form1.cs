@@ -1,7 +1,6 @@
 ﻿using MetroFramework.Forms;
 using ReactiveUI;
 using System.Reactive.Concurrency;
-using System.Windows.Forms;
 
 
 namespace winformsnoevents
@@ -14,7 +13,7 @@ namespace winformsnoevents
         {
             InitializeComponent();
 
-            scheduler = new System.Reactive.Concurrency.ControlScheduler(this);
+            scheduler = new ControlScheduler(this);
 
             VM = new MyViewModel(
                 scheduler,

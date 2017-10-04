@@ -10,17 +10,13 @@ namespace wpfrxexample.ViewModels
 
     public class MyViewModel : INotifyPropertyChanged
     {
+        readonly IScheduler scheduler;
 
-        IScheduler scheduler;
-         
         //http://msdn.microsoft.com/en-us/library/ms229614.aspx
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         string _CurrentTime;
@@ -52,7 +48,7 @@ namespace wpfrxexample.ViewModels
             }
         }
 
-        private void UpdateWordCount()
+        void UpdateWordCount()
         {
             WordCount = TextInput.Split()
                 .DefaultIfEmpty()
