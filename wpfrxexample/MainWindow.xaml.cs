@@ -15,7 +15,7 @@ namespace wpfrxexample
             InitializeComponent();
         }
 
-        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             ViewModels.MyViewModel VM = new ViewModels.MyViewModel(null);
             DataContext = VM;

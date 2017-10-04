@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Forms;
 
-// Rx and WinForms Example by Dmitry Ledentsov, 16.02.2013
 namespace winformsexample
 {
     public partial class Form1 : Form
@@ -15,10 +14,19 @@ namespace winformsexample
 
         void Form1_Load(object sender, EventArgs e)
         {
+            Ticker();
+            WordCount();
+        }
+
+        void Ticker()
+        {
             Observable.Interval(TimeSpan.FromSeconds(1))
                 .ObserveOn(this)
                 .Subscribe(x => textBox1.Text = DateTime.Now.ToLongTimeString());
+        }
 
+        void WordCount()
+        {
             var textChanged = Observable.FromEventPattern
                 <EventHandler, EventArgs>(
                 handler => handler.Invoke,

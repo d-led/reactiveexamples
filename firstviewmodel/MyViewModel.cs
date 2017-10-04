@@ -14,7 +14,7 @@ namespace wpfrxexample.ViewModels
 
         //http://msdn.microsoft.com/en-us/library/ms229614.aspx
         public event PropertyChangedEventHandler PropertyChanged;
-        void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -69,12 +69,11 @@ namespace wpfrxexample.ViewModels
             }
         }
 
-        public MyViewModel(IScheduler sch)
+        public MyViewModel(IScheduler scheduler)
         {
-            if (sch != null)
-                scheduler = sch;
-            else
-                scheduler = Scheduler.Default;
+            this.scheduler = scheduler ?? Scheduler.Default;
+
+            // ticker
             Observable.Interval(TimeSpan.FromSeconds(1))
                 .ObserveOn(scheduler)
                 .Subscribe(_ => CurrentTime = DateTime.Now.ToLongTimeString());
