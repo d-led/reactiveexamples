@@ -16,7 +16,7 @@ namespace winformsnoevents
             scheduler = new ControlScheduler(this);
 
             VM = new MyViewModel(
-                scheduler,
+                this.scheduler,
                 this.WhenAnyValue(x => x.inputBox.Text)
             );
 

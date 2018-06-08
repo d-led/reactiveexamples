@@ -75,7 +75,7 @@ namespace wpfrxexample.ViewModels
 
             // ticker
             Observable.Interval(TimeSpan.FromSeconds(1))
-                .ObserveOn(scheduler)
+                .ObserveOn(this.scheduler)
                 .Subscribe(_ => CurrentTime = DateTime.Now.ToLongTimeString());
         }
     }

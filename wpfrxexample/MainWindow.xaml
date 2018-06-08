@@ -15,7 +15,7 @@
         <Label Grid.Row="0" Grid.Column="0" Name="label1" Margin="3">Background ticker</Label>
         <Label Grid.Row="1" Grid.Column="0" Name="label2" Margin="3">Word count</Label>
         <TextBox Grid.Row="0" Grid.Column="1" Name="textBox1" Margin="3" Text="{Binding CurrentTime}" VerticalContentAlignment="Center" IsEnabled="False"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="textBox2" Margin="3" Text="{Binding WordCount}" VerticalContentAlignment="Center" IsEnabled="False"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="textBox2" Margin="3" Text="{Binding Path=WordCount, Mode=OneWay}" VerticalContentAlignment="Center" IsEnabled="False"></TextBox>
         <GroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <GroupBox.Header>
                 Enter some text
