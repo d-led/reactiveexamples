@@ -11,8 +11,6 @@ namespace wpfrxexample
     /// </summary>
     public partial class MainWindow : Window
     {
-        IDisposable subscription;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -26,7 +24,7 @@ namespace wpfrxexample
                 handler => handler.Invoke,
                 h => textBox3.TextChanged += h,
                 h => textBox3.TextChanged -= h);
-            subscription = textChanged.Subscribe(_ => VM.TextInput = textBox3.Text);
+            textChanged.Subscribe(_ => VM.TextInput = textBox3.Text);
         }
     }
 }
